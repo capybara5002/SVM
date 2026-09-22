@@ -1,0 +1,41 @@
+TÓM TẮT PHÂN TÍCH DỮ LIỆU ReINTEL
+========================================
+Nguồn: https://huggingface.co/datasets/ReliableAI/ReINTEL
+Revision nguồn: 5ccbbe27f55f7b848bdd74f012d84e1116dcd657
+Split sử dụng: train
+Số cột trong dữ liệu gốc: 20
+Danh sách cột gốc: ['id', 'image_0', 'post_message', 'user_name', 'timestamp_post', 'num_like_post', 'num_comment_post', 'num_share_post', 'label', 'image_1', 'image_2', 'image_3', 'image_4', 'image_5', 'image_6', 'image_7', 'image_8', 'image_9', 'image_10', 'image_11']
+Cột văn bản gốc: post_message
+Cột nhãn gốc: label
+Ánh xạ nhãn được dataset card xác nhận: {'0': 'reliable', '1': 'unreliable'}
+
+Số mẫu có nhãn trong CSV dự án: 4372
+Số cột trong CSV dự án: 2
+Danh sách cột trong CSV dự án: ['text', 'label']
+Cột văn bản dùng trong dự án: text
+Cột nhãn dùng trong dự án: label
+
+Số giá trị văn bản thiếu: 1
+Số giá trị nhãn thiếu: 0
+Giá trị thiếu của tất cả các cột:
+text     1
+label    0
+
+Số dòng trùng lặp hoàn toàn: 81
+
+Các nhãn duy nhất: [0, 1]
+Phân phối nhãn (label):
+label
+0    3638
+1     734
+
+Tỷ lệ nhãn (%):
+label
+0    83.21
+1    16.79
+
+Thống kê độ dài văn bản theo số ký tự (text):
+Nhỏ nhất: 5
+Lớn nhất: 28453
+Trung bình: 747.95
+Trung vị: 233.00

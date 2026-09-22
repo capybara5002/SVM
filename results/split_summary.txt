@@ -1,0 +1,16 @@
+TÓM TẮT CHIA DỮ LIỆU ReINTEL
+========================================
+random_state: 42
+Tỷ lệ test: 20%
+Số mẫu train: 3428
+Số mẫu test: 858
+
+Phân phối nhãn train:
+label
+0    2851
+1     577
+
+Phân phối nhãn test:
+label
+0    713
+1    145

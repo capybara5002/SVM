@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.coverage
+
+# Du lieu va san pham sinh tu pipeline co the lon hoac chua du lieu nghien cuu.
+data/raw/*
+!data/raw/.gitkeep
+!data/raw/reintel_metadata.json
+data/processed/*
+!data/processed/.gitkeep
+artifacts/*
+!artifacts/.gitkeep

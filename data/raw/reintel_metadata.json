@@ -1,0 +1,44 @@
+{
+  "source": "ReliableAI/ReINTEL",
+  "source_url": "https://huggingface.co/datasets/ReliableAI/ReINTEL",
+  "source_revision": "5ccbbe27f55f7b848bdd74f012d84e1116dcd657",
+  "split": "train",
+  "downloaded_at_utc": "2026-09-21T17:31:55.951993+00:00",
+  "num_records": 4372,
+  "original_num_columns": 20,
+  "original_columns": [
+    "id",
+    "image_0",
+    "post_message",
+    "user_name",
+    "timestamp_post",
+    "num_like_post",
+    "num_comment_post",
+    "num_share_post",
+    "label",
+    "image_1",
+    "image_2",
+    "image_3",
+    "image_4",
+    "image_5",
+    "image_6",
+    "image_7",
+    "image_8",
+    "image_9",
+    "image_10",
+    "image_11"
+  ],
+  "original_features": "{'id': Value('int64'), 'image_0': Image(mode=None, decode=True), 'post_message': Value('string'), 'user_name': Value('string'), 'timestamp_post': Value('float64'), 'num_like_post': Value('float64'), 'num_comment_post': Value('string'), 'num_share_post': Value('string'), 'label': Value('int64'), 'image_1': Image(mode=None, decode=True), 'image_2': Image(mode=None, decode=True), 'image_3': Image(mode=None, decode=True), 'image_4': Image(mode=None, decode=True), 'image_5': Image(mode=None, decode=True), 'image_6': Image(mode=None, decode=True), 'image_7': Image(mode=None, decode=True), 'image_8': Image(mode=None, decode=True), 'image_9': Image(mode=None, decode=True), 'image_10': Image(mode=None, decode=True), 'image_11': Image(mode=None, decode=True)}",
+  "original_text_column": "post_message",
+  "original_label_column": "label",
+  "project_text_column": "text",
+  "project_label_column": "label",
+  "label_mapping": {
+    "0": "reliable",
+    "1": "unreliable"
+  },
+  "observed_labels": [
+    0,
+    1
+  ]
+}
