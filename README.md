@@ -2,7 +2,7 @@
 
 ## 1. Mục tiêu đồ án
 
-Đồ án nghiên cứu cách dùng Support Vector Machine (SVM) để phân loại nội dung tiếng Việt trên mạng xã hội thành **thông tin đáng tin cậy** và **thông tin không đáng tin cậy**. Phiên bản hiện tại đã hoàn thành Tuần 1-5: chuẩn bị dữ liệu, huấn luyện SVM Linear/RBF và chọn tham số bằng Grid Search với 5-fold Cross Validation. Kết quả CV phục vụ chọn mô hình; đánh giá trên tập test độc lập thuộc Tuần 6.
+Đồ án nghiên cứu cách dùng Support Vector Machine (SVM) để phân loại nội dung tiếng Việt trên mạng xã hội thành **thông tin đáng tin cậy** và **thông tin không đáng tin cậy**. Phiên bản hiện tại đã hoàn thành Tuần 1-6: chuẩn bị dữ liệu, huấn luyện SVM Linear/RBF, chọn tham số bằng Grid Search với 5-fold Cross Validation và đánh giá trên tập test đã kiểm tra trùng lặp. Bảng, biểu đồ và dự đoán chi tiết được trình bày tại [docs/index.html](docs/index.html) và [docs/README.md](docs/README.md).
 
 ## 2. Bộ dữ liệu ReINTEL
 
@@ -59,7 +59,9 @@ SVM/
 │   ├── split_data.py
 │   ├── vectorize.py
 │   ├── train_svm.py
-│   └── training_report.py
+│   ├── training_report.py
+│   ├── evaluate_svm.py
+│   └── evaluation_visuals.py
 ├── artifacts/
 │   ├── tfidf_vectorizer.joblib
 │   ├── week3_prepared_data.joblib
@@ -83,10 +85,18 @@ SVM/
 │       ├── best_cv_folds.csv
 │       ├── cv_fold_assignments.csv
 │       └── training_summary.json
+├── docs/
+│   ├── index.html
+│   ├── README.md
+│   ├── evaluation_summary.json
+│   ├── figures/
+│   ├── tables/
+│   └── predictions/
 ├── tests/
 ├── download_reintel.py
 ├── run_preparation.py
 ├── run_training.py
+├── run_evaluation.py
 └── requirements.txt
 ```
 
@@ -242,19 +252,57 @@ decision_score = float(model.decision_function([processed])[0])
 
 `0 = reliable`, `1 = unreliable`. `decision_score` là khoảng cách quyết định, không phải xác suất. Các mô hình này không cần dùng `tfidf_vectorizer.joblib` riêng của Tuần 3.
 
-## 8. Kiểm thử
+## 8. Chạy đánh giá Tuần 6
+
+```powershell
+.\.venv\Scripts\python.exe run_evaluation.py
+```
+
+Script nạp bốn cấu hình đã lưu: Linear/RBF cơ sở và Linear/RBF tối ưu từ Tuần 5. `svm_best_model.pkl` là bản sao của cấu hình đã chọn từ CV, được kiểm tra trước khi xem kết quả test. Trong quá trình đánh giá không gọi `fit`, không học lại TF-IDF hoặc chọn lại tham số/ngưỡng bằng điểm test.
+
+Trước khi dự đoán, script xác minh hash train khớp metadata huấn luyện, kiểm tra train/test không trùng `source_index`, loại các văn bản test đã xuất hiện trong train và giữ lần đầu nếu văn bản test trùng nội bộ. Quy tắc lọc được thực hiện trước dự đoán; không sửa hai CSV gốc. Toàn bộ mẫu bị loại và nguồn train tương ứng được ghi tại `docs/tables/test_data_audit.csv`.
+
+### Xem bảng và biểu đồ trong docs
+
+- Mở [docs/index.html](docs/index.html) bằng trình duyệt để xem trang tổng hợp chạy ngoại tuyến, bảng chỉ số và biểu đồ theo từng cấu hình.
+- [docs/README.md](docs/README.md) là báo cáo Markdown có các hình được nhúng trực tiếp.
+- `docs/figures/`: ma trận nhầm lẫn theo số lượng và tỷ lệ, biểu đồ so sánh chỉ số, phân loại lỗi, phân phối dự đoán và so sánh F1 CV/test; mỗi hình có PNG và SVG để chèn vào báo cáo.
+- `docs/tables/model_metrics.csv`: Accuracy, Precision/Recall/F1 nhãn 1, F1 macro/weighted, balanced accuracy và số TN/FP/FN/TP.
+- `docs/tables/classification_report.csv`: Precision, Recall, F1 và support cho từng nhãn cùng các trung bình macro/weighted.
+- `docs/tables/confusion_matrices.csv`: từng ô ma trận nhầm lẫn và tỷ lệ theo hàng.
+- `docs/predictions/`: dự đoán từng mẫu và các mẫu sai của từng cấu hình; `all_predictions.csv` tổng hợp cả bốn cấu hình.
+- `docs/evaluation_summary.json`: kết quả đầy đủ, cấu hình cố định, phiên bản thư viện và hash đầu vào/mô hình.
+
+Nhãn dương là **1 = không đáng tin cậy**. Ma trận nhầm lẫn có hàng là nhãn thật, cột là nhãn dự đoán, theo thứ tự `[0, 1]`: `[[TN, FP], [FN, TP]]`. Điểm `decision_score` là điểm quyết định của SVC, không phải xác suất. Các bảng test là kết quả trên cùng một tập kiểm thử đã lọc; F1 CV là trung bình năm folds dùng ở Tuần 5 để chọn cấu hình.
+
+### Kết quả test đã hoàn thành
+
+Test gốc có 858 mẫu; loại hai mẫu trùng văn bản với train (source 3768 ↔ 1112, 1807 ↔ 74), còn **856 mẫu**, gồm 711 nhãn 0 và 145 nhãn 1. Test không có văn bản trùng nội bộ. Đã xuất 3.424 dòng dự đoán cho bốn cấu hình và 14 biểu đồ, mỗi biểu đồ có cả PNG và SVG.
+
+| Cấu hình | Accuracy | Precision nhãn 1 | Recall nhãn 1 | F1 nhãn 1 | TN | FP | FN | TP |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Linear cơ sở | 87.50% | 78.79% | 35.86% | 49.29% | 697 | 14 | 93 | 52 |
+| RBF cơ sở | 86.10% | 88.24% | 20.69% | 33.52% | 707 | 4 | 115 | 30 |
+| Linear tối ưu | 85.63% | 56.18% | 68.97% | 61.92% | 633 | 78 | 45 | 100 |
+| RBF tối ưu (đã chọn từ CV) | 83.76% | 51.49% | 71.72% | 59.94% | 613 | 98 | 41 | 104 |
+
+Linear tối ưu có F1 test cao hơn RBF tối ưu trong lần đánh giá này; RBF tối ưu có Recall nhãn 1 cao hơn. Mô hình chính vẫn là RBF đã chọn từ CV ở Tuần 5: không lựa chọn lại mô hình bằng điểm test. Train có một nhóm văn bản giống nhau sau tiền xử lý nhưng nhãn khác nhau; các dòng đó được ghi trong `docs/tables/train_label_conflicts.csv` để nêu giới hạn chất lượng dữ liệu trong báo cáo.
+
+## 9. Kiểm thử
 
 ```bat
 python -m unittest discover -s tests -v
-python -m compileall src download_reintel.py run_preparation.py run_training.py tests
+python -m compileall src download_reintel.py run_preparation.py run_training.py run_evaluation.py tests
 ```
 
 Dữ liệu tổng hợp nhỏ chỉ xuất hiện trong unit test, không được trình bày như kết quả ReINTEL. Các test kiểm tra tiền xử lý, cấu hình cột, chia 80/20 có phân tầng và từ chỉ xuất hiện ở test không lọt vào từ vựng TF-IDF. Các test huấn luyện kiểm tra từ riêng của validation không vào từ vựng từng fold, văn bản trùng nằm cùng fold, khả năng tái lập, chọn cấu hình theo F1 nhãn 1, dữ liệu lỗi bị từ chối và dự đoán sau lưu/nạp mô hình.
 
-## 9. Trạng thái kế hoạch
+Các test đánh giá xác nhận thứ tự TN/FP/FN/TP, chỉ số nhãn 1, xử lý không có dự đoán dương, loại trùng có thể tái lập, bảo toàn dữ liệu/mô hình gốc và từ chối metadata không khớp. Integration chặn mọi thao tác `fit`/`fit_transform` khi đánh giá và kiểm tra mô hình được chọn từ CV vẫn được giữ nếu một cấu hình khác có F1 test cao hơn. **Toàn bộ 30 kiểm thử đã vượt qua.**
+
+## 10. Trạng thái kế hoạch
 
 Tuần 1-3 đã hoàn thành tải dữ liệu thật, EDA, tiền xử lý, tách từ, chia dữ liệu và TF-IDF. Báo cáo Tuần 3 là tài liệu lịch sử của giai đoạn chuẩn bị dữ liệu.
 
 Tuần 4-5 đã hoàn thành huấn luyện cơ sở, so sánh Linear/RBF, chọn `C`, `gamma`, `class_weight`, Grid Search và 5-fold Cross Validation. Đã lưu 5 tệp mô hình `.pkl`, bảng kết quả và [báo cáo Tuần 5](results/bao_cao_tien_do_tuan_5.md). Toàn bộ 17 unit test vượt qua; kiểm tra đầu ra xác nhận 200 lượt fit CV được ghi nhận, các điểm số hữu hạn, mô hình đã refit trên đủ 3.428 mẫu train và nạp lại thành công.
 
-Tuần 6 sẽ đánh giá mô hình cố định trên tập test: Confusion Matrix, Accuracy, Precision, Recall và F1. Kiểm tra ban đầu phát hiện 2 văn bản đã tiền xử lý xuất hiện ở cả train và test; cần xử lý và ghi lại việc này trước khi đánh giá tính tổng quát hóa. Chưa dùng điểm test để lựa chọn mô hình. Tuần 7-8 sẽ tổng hợp báo cáo đồ án hoàn chỉnh.
+Tuần 6 đã hoàn thành đánh giá bốn cấu hình cố định trên 856 mẫu test sau khi loại hai văn bản trùng train, xuất dự đoán và tính Confusion Matrix, Accuracy, Precision, Recall, F1 cùng các thống kê theo nhãn. [Báo cáo Tuần 6](docs/README.md) và trang HTML trong `docs` hiển thị bảng, sơ đồ quy trình và biểu đồ cho từng cấu hình. Mô hình và hai CSV gốc được bảo toàn; kết quả test không được dùng để lựa chọn lại tham số. Tuần 7-8 sẽ tổng hợp báo cáo đồ án hoàn chỉnh.

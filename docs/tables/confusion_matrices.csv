@@ -1,0 +1,17 @@
+﻿model_id,true_label,predicted_label,count,row_fraction
+svm_linear_baseline,0,0,697,0.980309423347
+svm_linear_baseline,0,1,14,0.0196905766526
+svm_linear_baseline,1,0,93,0.641379310345
+svm_linear_baseline,1,1,52,0.358620689655
+svm_rbf_baseline,0,0,707,0.994374120956
+svm_rbf_baseline,0,1,4,0.0056258790436
+svm_rbf_baseline,1,0,115,0.793103448276
+svm_rbf_baseline,1,1,30,0.206896551724
+svm_linear_tuned,0,0,633,0.89029535865
+svm_linear_tuned,0,1,78,0.10970464135
+svm_linear_tuned,1,0,45,0.310344827586
+svm_linear_tuned,1,1,100,0.689655172414
+svm_rbf_tuned,0,0,613,0.862165963432
+svm_rbf_tuned,0,1,98,0.137834036568
+svm_rbf_tuned,1,0,41,0.28275862069
+svm_rbf_tuned,1,1,104,0.71724137931

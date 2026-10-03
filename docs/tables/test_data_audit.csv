@@ -1,0 +1,3 @@
+﻿source_index,processed_text,label,exclusion_reason,matching_train_source_indices
+3768,"đừng để vết xe đổ thủ_thiêm đang và có_thể sẽ hình_thành tại vân_đồn , quảng_ninh . ... ? . tham_vọng siêu dự_án 200 ha ở vân_đồn , trong khi tập_đoàn doji vẫn “ chật_vật ” vì dự_án 9 tầng xây gần 10 năm chưa xong ?",0,train_text_overlap,1112
+1807,"vết xe đổ thủ_thiêm đang và có_thể sẽ hình_thành tại vân_đồn , quảng_ninh . ... ? . tham_vọng siêu dự_án 200 ha ở vân_đồn , trong khi tập_đoàn doji vẫn “ chật_vật ” vì dự_án 9 tầng xây gần 10 năm chưa xong ?",0,train_text_overlap,74

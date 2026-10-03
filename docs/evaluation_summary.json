@@ -1,0 +1,320 @@
+{
+  "completed_at": "2026-10-03T16:25:55+07:00",
+  "data_audit": {
+    "train_rows": 3428,
+    "original_test_rows": 858,
+    "evaluated_test_rows": 856,
+    "excluded_rows": 2,
+    "excluded_overlap_rows": 2,
+    "excluded_duplicate_rows": 0,
+    "source_index_overlap_rows": 0,
+    "original_test_labels": {
+      "0": 713,
+      "1": 145
+    },
+    "evaluated_test_labels": {
+      "0": 711,
+      "1": 145
+    },
+    "excluded_test_labels": {
+      "0": 2,
+      "1": 0
+    },
+    "train_text_conflict_groups": 1,
+    "exclusion_policy": "Loại văn bản test trùng train, rồi giữ lần đầu của văn bản test trùng nội bộ; không dùng dự đoán hoặc điểm số để lọc.",
+    "excluded_source_indices": [
+      3768,
+      1807
+    ],
+    "original_csvs_preserved": true,
+    "train_sha256": "9b429b3d7697bb89b71760968d3324b32e01892ef1b140009c1e0f544da17204",
+    "test_sha256": "3a7245c3d4edddbcde2bc1bf86d0e4f86cd90bdc5d47c9bd08bb51cd4d8abd6d"
+  },
+  "selected_model_id": "svm_rbf_tuned",
+  "model_selection": {
+    "source": "week4_5_cv",
+    "kernel": "rbf",
+    "params": {
+      "svc__C": 10.0,
+      "svc__class_weight": "balanced",
+      "svc__gamma": 0.01
+    },
+    "mean_cv_f1": 0.5933764255423495,
+    "threshold": "Ngưỡng dự đoán mặc định của SVC (decision_function = 0)",
+    "alias_file": "C:\\code\\NAM4_HK1\\DACN\\SVM\\artifacts\\svm_best_model.pkl",
+    "alias_sha256": "dd095d8601e5f157ca105b1f32abde3cf32ade0d4872e049cf9b8f09f1ff53ab",
+    "test_used_for_selection": false,
+    "refit_during_evaluation": false
+  },
+  "models": [
+    {
+      "id": "svm_linear_baseline",
+      "display_name": "Linear cơ sở",
+      "params": {
+        "C": 1.0,
+        "kernel": "linear",
+        "gamma": "scale",
+        "class_weight": null
+      },
+      "metrics": {
+        "accuracy": 0.875,
+        "precision": 0.7878787878787878,
+        "recall": 0.3586206896551724,
+        "f1": 0.4928909952606635,
+        "f1_macro": 0.7108025929001518,
+        "f1_weighted": 0.8548889997505611,
+        "balanced_accuracy": 0.6694650565012852
+      },
+      "confusion_matrix": [
+        [
+          697,
+          14
+        ],
+        [
+          93,
+          52
+        ]
+      ],
+      "classification_report": {
+        "reliable": {
+          "precision": 0.8822784810126583,
+          "recall": 0.980309423347398,
+          "f1-score": 0.9287141905396402,
+          "support": 711.0
+        },
+        "unreliable": {
+          "precision": 0.7878787878787878,
+          "recall": 0.3586206896551724,
+          "f1-score": 0.4928909952606635,
+          "support": 145.0
+        },
+        "accuracy": 0.875,
+        "macro avg": {
+          "precision": 0.8350786344457231,
+          "recall": 0.6694650565012852,
+          "f1-score": 0.7108025929001518,
+          "support": 856.0
+        },
+        "weighted avg": {
+          "precision": 0.8662878787878788,
+          "recall": 0.875,
+          "f1-score": 0.8548889997505611,
+          "support": 856.0
+        }
+      },
+      "cv_f1": 0.4957457780449497,
+      "model_file": "C:\\code\\NAM4_HK1\\DACN\\SVM\\artifacts\\svm_linear_baseline.pkl",
+      "model_sha256": "0c7bce147cf3f553afaecdc4fd396d9e056a299a65214fdc411383e6a7e8f332",
+      "prediction_file": "predictions/svm_linear_baseline.csv",
+      "error_file": "predictions/svm_linear_baseline_errors.csv",
+      "evaluated_samples": 856,
+      "seconds": 1.3531929000000673
+    },
+    {
+      "id": "svm_rbf_baseline",
+      "display_name": "RBF cơ sở",
+      "params": {
+        "C": 1.0,
+        "kernel": "rbf",
+        "gamma": "scale",
+        "class_weight": null
+      },
+      "metrics": {
+        "accuracy": 0.860981308411215,
+        "precision": 0.8823529411764706,
+        "recall": 0.20689655172413793,
+        "f1": 0.33519553072625696,
+        "f1_macro": 0.6287849799750006,
+        "f1_weighted": 0.8229107139408754,
+        "balanced_accuracy": 0.6006353363402687
+      },
+      "confusion_matrix": [
+        [
+          707,
+          4
+        ],
+        [
+          115,
+          30
+        ]
+      ],
+      "classification_report": {
+        "reliable": {
+          "precision": 0.8600973236009732,
+          "recall": 0.9943741209563994,
+          "f1-score": 0.9223744292237442,
+          "support": 711.0
+        },
+        "unreliable": {
+          "precision": 0.8823529411764706,
+          "recall": 0.20689655172413793,
+          "f1-score": 0.33519553072625696,
+          "support": 145.0
+        },
+        "accuracy": 0.860981308411215,
+        "macro avg": {
+          "precision": 0.8712251323887219,
+          "recall": 0.6006353363402687,
+          "f1-score": 0.6287849799750006,
+          "support": 856.0
+        },
+        "weighted avg": {
+          "precision": 0.8638672588211217,
+          "recall": 0.860981308411215,
+          "f1-score": 0.8229107139408754,
+          "support": 856.0
+        }
+      },
+      "cv_f1": 0.3366179020584438,
+      "model_file": "C:\\code\\NAM4_HK1\\DACN\\SVM\\artifacts\\svm_rbf_baseline.pkl",
+      "model_sha256": "0037e159b60c5267f1807a7ced7ac40f80d489c1dc330b112b76f5b008f94b38",
+      "prediction_file": "predictions/svm_rbf_baseline.csv",
+      "error_file": "predictions/svm_rbf_baseline_errors.csv",
+      "evaluated_samples": 856,
+      "seconds": 2.011236000000281
+    },
+    {
+      "id": "svm_linear_tuned",
+      "display_name": "Linear tối ưu",
+      "params": {
+        "kernel": "linear",
+        "C": 1.0,
+        "gamma": "scale",
+        "class_weight": "balanced"
+      },
+      "metrics": {
+        "accuracy": 0.8563084112149533,
+        "precision": 0.5617977528089888,
+        "recall": 0.6896551724137931,
+        "f1": 0.6191950464396285,
+        "f1_macro": 0.765321065336445,
+        "f1_weighted": 0.8619417740929847,
+        "balanced_accuracy": 0.7899752655317911
+      },
+      "confusion_matrix": [
+        [
+          633,
+          78
+        ],
+        [
+          45,
+          100
+        ]
+      ],
+      "classification_report": {
+        "reliable": {
+          "precision": 0.9336283185840708,
+          "recall": 0.890295358649789,
+          "f1-score": 0.9114470842332614,
+          "support": 711.0
+        },
+        "unreliable": {
+          "precision": 0.5617977528089888,
+          "recall": 0.6896551724137931,
+          "f1-score": 0.6191950464396285,
+          "support": 145.0
+        },
+        "accuracy": 0.8563084112149533,
+        "macro avg": {
+          "precision": 0.7477130356965298,
+          "recall": 0.7899752655317911,
+          "f1-score": 0.765321065336445,
+          "support": 856.0
+        },
+        "weighted avg": {
+          "precision": 0.8706430007833852,
+          "recall": 0.8563084112149533,
+          "f1-score": 0.8619417740929847,
+          "support": 856.0
+        }
+      },
+      "cv_f1": 0.586861737035594,
+      "model_file": "C:\\code\\NAM4_HK1\\DACN\\SVM\\artifacts\\svm_linear_best.pkl",
+      "model_sha256": "725770efea9d08326e38026959cdc202df5c7afecf54f29003fc5ae7823185b8",
+      "prediction_file": "predictions/svm_linear_tuned.csv",
+      "error_file": "predictions/svm_linear_tuned_errors.csv",
+      "evaluated_samples": 856,
+      "seconds": 1.3424606999997195
+    },
+    {
+      "id": "svm_rbf_tuned",
+      "display_name": "RBF tối ưu",
+      "params": {
+        "kernel": "rbf",
+        "C": 10.0,
+        "gamma": 0.01,
+        "class_weight": "balanced"
+      },
+      "metrics": {
+        "accuracy": 0.8376168224299065,
+        "precision": 0.5148514851485149,
+        "recall": 0.7172413793103448,
+        "f1": 0.5994236311239193,
+        "f1_macro": 0.7487960646462087,
+        "f1_weighted": 0.8475633512976292,
+        "balanced_accuracy": 0.7897036713710655
+      },
+      "confusion_matrix": [
+        [
+          613,
+          98
+        ],
+        [
+          41,
+          104
+        ]
+      ],
+      "classification_report": {
+        "reliable": {
+          "precision": 0.9373088685015291,
+          "recall": 0.8621659634317862,
+          "f1-score": 0.8981684981684982,
+          "support": 711.0
+        },
+        "unreliable": {
+          "precision": 0.5148514851485149,
+          "recall": 0.7172413793103448,
+          "f1-score": 0.5994236311239193,
+          "support": 145.0
+        },
+        "accuracy": 0.8376168224299065,
+        "macro avg": {
+          "precision": 0.726080176825022,
+          "recall": 0.7897036713710655,
+          "f1-score": 0.7487960646462087,
+          "support": 856.0
+        },
+        "weighted avg": {
+          "precision": 0.865747746321404,
+          "recall": 0.8376168224299065,
+          "f1-score": 0.8475633512976292,
+          "support": 856.0
+        }
+      },
+      "cv_f1": 0.5933764255423495,
+      "model_file": "C:\\code\\NAM4_HK1\\DACN\\SVM\\artifacts\\svm_rbf_best.pkl",
+      "model_sha256": "dd095d8601e5f157ca105b1f32abde3cf32ade0d4872e049cf9b8f09f1ff53ab",
+      "prediction_file": "predictions/svm_rbf_tuned.csv",
+      "error_file": "predictions/svm_rbf_tuned_errors.csv",
+      "evaluated_samples": 856,
+      "seconds": 2.029774399999951
+    }
+  ],
+  "tables": {
+    "metrics": "tables/model_metrics.csv",
+    "classification_report": "tables/classification_report.csv",
+    "confusion_matrices": "tables/confusion_matrices.csv",
+    "data_audit": "tables/test_data_audit.csv",
+    "evaluated_test_samples": "tables/evaluated_test_samples.csv",
+    "train_label_conflicts": "tables/train_label_conflicts.csv",
+    "predictions": "predictions/all_predictions.csv"
+  },
+  "versions": {
+    "python": "3.11.16",
+    "scikit_learn": "1.7.2",
+    "numpy": "2.3.3",
+    "pandas": "2.3.2",
+    "joblib": "1.5.2"
+  },
+  "total_seconds": 7.369743900000685
+}

@@ -1,4 +1,4 @@
-"""Cau hinh trung tam cho chuan bi du lieu va huan luyen SVM."""
+"""Cau hinh trung tam cho chuan bi du lieu, huan luyen va danh gia SVM."""
 
 from pathlib import Path
 
@@ -28,5 +28,6 @@ SVM_C_VALUES = (0.1, 1.0, 10.0, 100.0)
 SVM_GAMMA_VALUES = ("scale", 0.01, 0.1, 1.0)
 SVM_CLASS_WEIGHTS = (None, "balanced")
 TRAINING_RESULTS_DIR = RESULTS_DIR / "week4_5"
+DOCS_DIR = BASE_DIR / "docs"
 
 SUPPORTED_EXTENSIONS = {".csv", ".tsv", ".txt", ".json", ".jsonl", ".zip"}
