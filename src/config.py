@@ -1,4 +1,4 @@
-"""Cau hinh trung tam cho pipeline chuan bi du lieu tuan 1-3."""
+"""Cau hinh trung tam cho chuan bi du lieu va huan luyen SVM."""
 
 from pathlib import Path
 
@@ -22,5 +22,11 @@ RANDOM_STATE = 42
 TEST_SIZE = 0.20
 MAX_FEATURES = 10_000
 NGRAM_RANGE = (1, 1)
+
+CV_FOLDS = 5
+SVM_C_VALUES = (0.1, 1.0, 10.0, 100.0)
+SVM_GAMMA_VALUES = ("scale", 0.01, 0.1, 1.0)
+SVM_CLASS_WEIGHTS = (None, "balanced")
+TRAINING_RESULTS_DIR = RESULTS_DIR / "week4_5"
 
 SUPPORTED_EXTENSIONS = {".csv", ".tsv", ".txt", ".json", ".jsonl", ".zip"}

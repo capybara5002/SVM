@@ -1,0 +1,6 @@
+﻿model,stage,params,mean_cv_f1,mean_cv_precision,mean_cv_recall,mean_cv_f1_macro,mean_cv_accuracy,mean_cv_balanced_accuracy,std_cv_f1
+dummy_majority,baseline,"{""strategy"": ""most_frequent""}",0.0,0.0,0.0,0.4540076977398413,0.8316681904934459,0.5,0.0
+svm_linear_baseline,baseline,"{""C"": 1.0, ""kernel"": ""linear"", ""gamma"": ""scale"", ""class_weight"": null}",0.4957457780449497,0.769680512723991,0.36975440067901555,0.7118460456835506,0.8739644865412076,0.6731960457934805,0.01715260818765353
+svm_rbf_baseline,baseline,"{""C"": 1.0, ""kernel"": ""rbf"", ""gamma"": ""scale"", ""class_weight"": null}",0.3366179020584438,0.8656084656084657,0.21104385452130864,0.6294235997696633,0.860835981623115,0.6020392980108971,0.04201958435672024
+svm_linear_tuned,grid_search,"{""svc__C"": 1.0, ""svc__class_weight"": ""balanced""}",0.586861737035594,0.5698519109080928,0.6095858595705174,0.7498786686775392,0.8561772060491541,0.7579373064176812,0.04544581465885698
+svm_rbf_tuned,grid_search,"{""svc__C"": 10.0, ""svc__class_weight"": ""balanced"", ""svc__gamma"": 0.01}",0.5933764255423495,0.5260237692555945,0.6838057531498762,0.7481405657219109,0.8433495986696945,0.7795973799627551,0.05379848021655387
