@@ -91,7 +91,7 @@ def write_chapter_report(summary: dict, docs_dir: Path):
     near_note = f"Ở ngưỡng 0.80, giữ {int(strict.retained)} mẫu, loại {int(strict.excluded)}; F1 nhãn 1 của cấu hình CV {selected} là {strict.f1:.4f}, thay đổi {100*(strict.f1-winner['metrics']['f1']):+.2f} điểm phần trăm so với holdout đầy đủ."
     error_sections = []
     for _, row in examples.iterrows():
-        excerpt = str(row.text_original).replace("\n"," ").replace("\r"," ")
+        excerpt = str(row.text_original).replace("\n"," ").replace("\r"," ").strip()
         if len(excerpt) > 1100:
             excerpt = excerpt[:1100] + " […]"
         comment = annotation_map.get(row.source_index,"Chưa có nhận xét thủ công; cần đọc nội dung gốc trong CSV.")

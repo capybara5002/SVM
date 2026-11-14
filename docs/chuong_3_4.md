@@ -177,7 +177,7 @@ Nhận xét: Bài bàn về Anaferon với nhiều chữ in hoa, từ phủ đ�
 
 Nhãn thật 1; dự đoán 0; decision_function = -0.011073.
 
-Nội dung (trích, có thể rút gọn): Khi các thày thuốc phải lựa chọn cứu chữa những người có cơ hội sống sót  cao hơn, những người già trong các viện dưỡng lão phải đón nhận cái  chết! Thật đáng thương!  
+Nội dung (trích, có thể rút gọn): Khi các thày thuốc phải lựa chọn cứu chữa những người có cơ hội sống sót  cao hơn, những người già trong các viện dưỡng lão phải đón nhận cái  chết! Thật đáng thương!
 
 Nhận xét: Một bình luận cảm xúc về lựa chọn cứu chữa và người cao tuổi, không có thời gian hoặc nguồn cụ thể trong văn bản. Nhãn gốc 1 nhưng điểm âm rất nhỏ. Thiếu ngữ cảnh để đánh giá nội dung bằng riêng đoạn chữ; không suy diễn rằng câu cảm thán tự nó là tin sai.
 ### FN · ID 3206 · sát ngưỡng
@@ -191,14 +191,14 @@ Nhận xét: Câu hỏi tu từ, có từ tục và bình luận về việc x�
 
 Nhãn thật 1; dự đoán 0; decision_function = -1.216814.
 
-Nội dung (trích, có thể rút gọn): Chuyên gia khuyên dùng thức uống thảo mộc phòng chống virus Covid-19  Một trong các thành phần của bài thuốc sử dụng phòng, chống covid 19 có trong trà thanh nhiệt <URL> 
+Nội dung (trích, có thể rút gọn): Chuyên gia khuyên dùng thức uống thảo mộc phòng chống virus Covid-19  Một trong các thành phần của bài thuốc sử dụng phòng, chống covid 19 có trong trà thanh nhiệt <URL>
 
 Nhận xét: Bài có cấu trúc giới thiệu thức uống thảo mộc, gắn lời khuyên 'chuyên gia' với công dụng phòng chống Covid-19 và dẫn URL. Nhãn gốc 1 nhưng điểm -1.2168 là FN xa ngưỡng nhất. Kiểu dẫn thẩm quyền và ngôn ngữ giới thiệu sản phẩm có thể là hướng cần kiểm tra thêm; mô hình chữ không xác minh được chuyên gia, sản phẩm hoặc bằng chứng cho công dụng được nêu.
 ### FN · ID 4363 · xa ngưỡng
 
 Nhãn thật 1; dự đoán 0; decision_function = -1.216266.
 
-Nội dung (trích, có thể rút gọn): Tin từ Phó Chủ Tịch UBND TPHCM Lê Thanh Liêm. TP Hồ Chí Minh mắc 43000 ca Covid-19, tử vong hơn 1000 ca. 
+Nội dung (trích, có thể rút gọn): Tin từ Phó Chủ Tịch UBND TPHCM Lê Thanh Liêm. TP Hồ Chí Minh mắc 43000 ca Covid-19, tử vong hơn 1000 ca.
 
 Nhận xét: Bài ngắn dẫn tên và chức danh lãnh đạo, kèm số ca mắc/tử vong, có hình thức giống thông báo tin tức. Nhãn gốc 1 nhưng mô hình cho điểm âm xa ngưỡng. Văn bản không có thời điểm hoặc tài liệu nguồn đủ để kiểm chứng các con số; ví dụ nêu giới hạn của phân loại theo hình thức câu chữ, không xác nhận thông tin dịch tễ trong bài.
 
