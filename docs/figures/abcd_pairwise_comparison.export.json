@@ -1,0 +1,18 @@
+{
+  "name": "abcd_pairwise_comparison",
+  "size_inches": [
+    11.5,
+    8.5
+  ],
+  "dpi": 300,
+  "font": "DejaVu Sans; SVG glyph outlines",
+  "background": "white",
+  "clipped_text": [],
+  "sha256": {
+    "png": "859d6cdf097c4a283e6f1891f9f2a47b69bc5a4ee699b7f15b66120cba404e96",
+    "svg": "45eebdfcd9d8f1e05e23302264ae99419f1b31c10730f20453223bfed3a0a2a2"
+  },
+  "source_data": "results/chapter3_4/experiment_summary.json",
+  "source_sha256": "cb026b09b3759b356912268e0f7212e2be11357c0621cb49387d3318e9e6fa98",
+  "transformations": "metrics unchanged; normalized confusion cells divide by true-label row total"
+}

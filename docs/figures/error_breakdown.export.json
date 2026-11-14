@@ -1,0 +1,18 @@
+{
+  "name": "error_breakdown",
+  "size_inches": [
+    12.4,
+    5.4
+  ],
+  "dpi": 300,
+  "font": "DejaVu Sans; SVG glyph outlines",
+  "background": "white",
+  "clipped_text": [],
+  "sha256": {
+    "png": "713ba9c4708f084173b4a95d58f6c0a985b9bc2411fd39dd455e730a2fd24721",
+    "svg": "3dba8b3ccbca996c6de03b665638ebbb9122c85eab7bec7e7a340824be18b8d0"
+  },
+  "source_data": "docs/evaluation_summary.json",
+  "source_sha256": "421159fd027ae9560e520914cd6b3f406a60b9d3b4b070e2b95e647032a6abef",
+  "transformations": "metrics unchanged; normalized confusion cells divide by true-label row total"
+}

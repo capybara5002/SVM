@@ -1,0 +1,18 @@
+{
+  "name": "abcd_confusion_overview",
+  "size_inches": [
+    10.5,
+    9.0
+  ],
+  "dpi": 300,
+  "font": "DejaVu Sans; SVG glyph outlines",
+  "background": "white",
+  "clipped_text": [],
+  "sha256": {
+    "png": "b04fc9f77c04466a980223895400ded0764c3c2b96aab792642db6882b034ded",
+    "svg": "7ff676049332687dfa931bed497dc12ec8794090794a61ec2a4baa0f1809001b"
+  },
+  "source_data": "results/chapter3_4/experiment_summary.json",
+  "source_sha256": "cb026b09b3759b356912268e0f7212e2be11357c0621cb49387d3318e9e6fa98",
+  "transformations": "metrics unchanged; normalized confusion cells divide by true-label row total"
+}

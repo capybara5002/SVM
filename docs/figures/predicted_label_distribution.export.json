@@ -1,0 +1,18 @@
+{
+  "name": "predicted_label_distribution",
+  "size_inches": [
+    12.4,
+    5.3
+  ],
+  "dpi": 300,
+  "font": "DejaVu Sans; SVG glyph outlines",
+  "background": "white",
+  "clipped_text": [],
+  "sha256": {
+    "png": "0a68f0269b6ba7d3182d05134d6af0514bfb92da4b7fcf988fca783d15144881",
+    "svg": "59a6a92c537d4b327d14c4fc4f1986a7caa4a0b949bdd1aa50dcc3a67b666e7e"
+  },
+  "source_data": "docs/evaluation_summary.json",
+  "source_sha256": "421159fd027ae9560e520914cd6b3f406a60b9d3b4b070e2b95e647032a6abef",
+  "transformations": "metrics unchanged; normalized confusion cells divide by true-label row total"
+}

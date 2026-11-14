@@ -1,8 +1,10 @@
+[Thực nghiệm A–D và nội dung Chương 3–4](chuong_3_4.md) · [Mở HTML A–D](chapter3_4.html)
+
 # Báo cáo đánh giá mô hình SVM – Tuần 6
 
 **Đã hoàn thành:** dự đoán trên tập test, xuất dự đoán từng mẫu, tính Accuracy / Precision / Recall / F1, trích xuất và vẽ ma trận nhầm lẫn, so sánh trực quan bốn cấu hình SVM đã lưu.
 
-Lần đánh giá hoàn tất: **2026-10-03T16:25:55+07:00**. Mở [báo cáo HTML](index.html) bằng trình duyệt để xem toàn bộ bảng và hình, hoặc xem các bảng dưới đây.
+Lần đánh giá hoàn tất: **2026-11-14T16:53:59+07:00**. Mở [báo cáo HTML](index.html) bằng trình duyệt để xem toàn bộ bảng và hình, hoặc xem các bảng dưới đây.
 
 ## 1. Tập kiểm thử
 
@@ -73,7 +75,7 @@ FP là mẫu nhãn 0 bị báo thành nhãn 1; FN là mẫu nhãn 1 bị bỏ s�
 | Linear tối ưu | 58.69% | 61.92% | +3.23 |
 | RBF tối ưu | 59.34% | 59.94% | +0.60 |
 
-CV là trung bình các folds trên train, còn test là một tập độc lập sau kiểm tra trùng lặp. Các chênh lệch là thống kê mô tả; không xếp hạng lại hoặc chọn cấu hình dựa trên test.
+CV là trung bình các fold trên train; test là holdout chia nội bộ đã được quan sát ở lần đánh giá trước, đã kiểm tra trùng lặp. Các chênh lệch là thống kê mô tả; không xếp hạng lại hoặc chọn cấu hình dựa trên test.
 
 ![F1 CV và test](figures/cv_vs_test_f1.png)
 

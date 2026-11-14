@@ -1,5 +1,9 @@
 # Nghiên cứu thuật toán Support Vector Machine giải bài toán nhận diện tin giả trên mạng xã hội
 
+Thực nghiệm Chương 3–4 đã bổ sung thiết kế 2×2 A–D (không/có Underthesea × Linear/RBF), giữ nguyên 3.428 ID train, 856 ID holdout và 5 fold. Xem [báo cáo A–D](docs/chapter3_4.html), [nội dung để đưa vào Chương 3–4](docs/chuong_3_4.md), [bảng kết quả](results/chapter3_4/metrics_abcd.csv), [hình slide 16:9](docs/figures/abcd_slide_16x9.svg) và [biên bản bàn giao](docs/BAN_GIAO.md). Các cấu hình cơ sở/tối ưu có Underthesea được giữ riêng tại [mốc đối chiếu](docs/index.html).
+
+Chạy bổ sung bằng `run_experiments.py --n-jobs 2`; `run_evaluation.py --no-render` đánh giá mốc cũ; `finalize_experiment.py` xuất thống kê và hồ sơ; `run_visuals.py` tạo ảnh tạm; `verify_delivery.py --staging tmp/visuals_review` kiểm tra số liệu/ảnh/liên kết. Sau khi mở và kiểm tra PNG/SVG, dùng `run_visuals.py --publish` để thay đúng các ảnh đã đạt. Danh sách ảnh thay/thêm nằm trong [figure_changes.json](docs/figure_changes.json).
+
 ## 1. Mục tiêu đồ án
 
 Đồ án nghiên cứu cách dùng Support Vector Machine (SVM) để phân loại nội dung tiếng Việt trên mạng xã hội thành **thông tin đáng tin cậy** và **thông tin không đáng tin cậy**. Phiên bản hiện tại đã hoàn thành Tuần 1-6: chuẩn bị dữ liệu, huấn luyện SVM Linear/RBF, chọn tham số bằng Grid Search với 5-fold Cross Validation và đánh giá trên tập test đã kiểm tra trùng lặp. Bảng, biểu đồ và dự đoán chi tiết được trình bày tại [docs/index.html](docs/index.html) và [docs/README.md](docs/README.md).

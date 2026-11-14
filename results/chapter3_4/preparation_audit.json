@@ -1,0 +1,8 @@
+{
+  "raw_rows": 4372,
+  "missing_or_empty": 1,
+  "raw_duplicate_rows": 81,
+  "valid_rows": 4290,
+  "empty_after_cleaning": 4,
+  "rows_before_split": 4286
+}

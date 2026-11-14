@@ -1,6 +1,6 @@
 # Báo cáo tiến độ Tuần 6
 
-Hoàn tất đánh giá lúc 2026-10-03T16:25:55+07:00 (UTC+7).
+Hoàn tất đánh giá lúc 2026-11-14T16:53:59+07:00 (UTC+7).
 
 Test gốc 858 mẫu; loại 2 mẫu theo quy tắc kiểm tra trùng, còn 856 mẫu. Đã đánh giá bốn cấu hình SVM cố định, xuất dự đoán, bảng chỉ số, báo cáo theo nhãn và biểu đồ.
 

@@ -1,0 +1,61 @@
+{
+  "checks": [
+    {
+      "actual": "PNG",
+      "detail": "File format is compared with the explicit allow-list.",
+      "expected": [
+        "PNG"
+      ],
+      "name": "format",
+      "status": "pass"
+    },
+    {
+      "actual": 486.83333333333326,
+      "detail": "DPI basis: effective at target width. Metadata DPI is not a quality measure; effective DPI depends on final physical size.",
+      "expected": {
+        "max": null,
+        "min": 299.9
+      },
+      "name": "dpi",
+      "status": "pass"
+    }
+  ],
+  "input": {
+    "name": "metric_comparison.png",
+    "path": "C:\\code\\NAM4_HK1\\DACN\\SVM\\tmp\\visuals_review\\figures\\metric_comparison.png",
+    "size_bytes": 370289,
+    "suffix": ".png"
+  },
+  "metadata": {
+    "bands": [
+      "R",
+      "G",
+      "B",
+      "A"
+    ],
+    "compression": null,
+    "dpi_x": 299.9994,
+    "dpi_y": 299.9994,
+    "exif_present": false,
+    "format": "PNG",
+    "frames": 1,
+    "has_alpha": true,
+    "height_mm_from_metadata": 215.9004318008636,
+    "height_px": 2550,
+    "icc_profile_bytes": 0,
+    "icc_profile_present": false,
+    "kind": "raster",
+    "mode": "RGBA",
+    "pixel_count": 8797500,
+    "width_mm_from_metadata": 292.10058420116843,
+    "width_px": 3450
+  },
+  "notice": "This deterministic metadata screen checks only the supplied constraints. It does not verify visual quality, scientific integrity, accessibility, embedded-raster resolution in vector files, or journal compliance.",
+  "schema_version": "1.0",
+  "screening_summary": {
+    "fail": 0,
+    "pass": 2,
+    "unknown": 0,
+    "warning": 0
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "confusion_overview_normalized",
+  "size_inches": [
+    10.5,
+    9.0
+  ],
+  "dpi": 300,
+  "font": "DejaVu Sans; SVG glyph outlines",
+  "background": "white",
+  "clipped_text": [],
+  "sha256": {
+    "png": "b5623ec84a1de599a98df7675eb113cacdb180fd9bc73a5ac9e2d2eb9308a2b9",
+    "svg": "7771cc080859dadad8b81e298f493b05a8e05bd2b2179ce530f13cd0765133ea"
+  },
+  "source_data": "docs/evaluation_summary.json",
+  "source_sha256": "421159fd027ae9560e520914cd6b3f406a60b9d3b4b070e2b95e647032a6abef",
+  "transformations": "metrics unchanged; normalized confusion cells divide by true-label row total"
+}

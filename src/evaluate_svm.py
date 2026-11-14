@@ -21,6 +21,7 @@ from sklearn.metrics import (
     f1_score,
     precision_score,
     recall_score,
+    roc_auc_score,
 )
 
 from . import config
@@ -183,6 +184,7 @@ def evaluate_saved_models(
     artifacts_dir: Path = config.ARTIFACTS_DIR,
     docs_dir: Path = config.DOCS_DIR,
     report_path: Path = config.RESULTS_DIR / "bao_cao_tien_do_tuan_6.md",
+    render_docs: bool = True,
 ) -> dict:
     started = perf_counter()
     metadata = json.loads(training_summary_path.read_text(encoding="utf-8"))
@@ -256,6 +258,7 @@ def evaluate_saved_models(
         before = perf_counter()
         predictions = _prediction_table(clean, model, model_id)
         scores = compute_metrics(predictions["y_true"], predictions["y_pred"])
+        scores["metrics"]["roc_auc"] = float(roc_auc_score(predictions["y_true"], predictions["decision_score"]))
         prediction_file = f"predictions/{model_id}.csv"
         error_file = f"predictions/{model_id}_errors.csv"
         _write_csv(predictions, docs_dir / prediction_file)
@@ -304,7 +307,8 @@ def evaluate_saved_models(
     )
     from .evaluation_visuals import render_evaluation_docs
 
-    render_evaluation_docs(summary, docs_dir)
+    if render_docs:
+        render_evaluation_docs(summary, docs_dir)
     chosen = next(model for model in summary["models"] if model["id"] == selected_id)
     metrics = chosen["metrics"]
     report_path.write_text(

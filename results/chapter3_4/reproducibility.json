@@ -1,0 +1,22 @@
+{
+  "source_sha256": {
+    "src/experiment_abcd.py": "f3f2b7aa1d21f03047562a52f8e640c542b02a885a60e1f8bda950b2eeb87471",
+    "src/preprocess.py": "0115c57f4aa35c25a49f292c713d44b08f8f5fb6b5e3c3da651c8c61c415bd60",
+    "src/vectorize.py": "1ae708e4f630529246dc3a4b0517aac430b0f7d79641d2da86170e8e89099dbc",
+    "src/train_svm.py": "0aff3092008ffba788143875307be243b31acb2abbf4fad24ba3b4a4a39448bf",
+    "src/config.py": "3e3476b1f6f870d42e9b31589f8a64bb9560c6cd69055fdf0417154b26ca7fd4",
+    "src/evaluation_visuals.py": "5b962e0b7a36afcbbf1cbbfa13f78966f952ee6c7d027ada541fb6ce2c83b93d",
+    "src/chapter_report.py": "afb0e2a6a411958e592341b325d7dda25097b9f32d07a0a8204c00fdada00970",
+    "run_experiments.py": "5e9bc0b73480035b7a9dc107edb1d6bad94f8d543a0839484780689ac193082d",
+    "run_visuals.py": "866a44a0273e62b74e166e5080e4d8eb8677c2899035fbb9eec06e595109611b",
+    "verify_delivery.py": "f4febe387eba376935f2ec1eada008d9d6edad231ba913b0581ee57fa17c1b1b",
+    "requirements.txt": "681508d31c4d1fbbcc8e05b2ddcb5768a0dc9e5259248b34d041748bdaf85a2d"
+  },
+  "skill": {
+    "path": "C:\\Users\\jiki\\.codex\\skills\\scientific-visualization\\SKILL.md",
+    "sha256": "8cbde7cdc10d959cf72cfd08335cc8ce996247eee6ebdb900eb64a4cb0ff34a3",
+    "repo": "https://github.com/K-Dense-AI/scientific-agent-skills",
+    "path_in_repo": "skills/scientific-visualization",
+    "installation": "Attempted requested npx.cmd command from DACN; clone stalled. Installed only this skill and its 17 support files through GitHub API/raw download."
+  }
+}

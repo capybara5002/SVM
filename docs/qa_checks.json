@@ -1,0 +1,217 @@
+{
+  "passed": true,
+  "models": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "train_rows": 3428,
+  "test_rows": 856,
+  "matrices_checked": 8,
+  "figures": [
+    {
+      "name": "abcd_confusion_overview",
+      "dimensions": [
+        3150,
+        2700
+      ],
+      "dpi": 300,
+      "svg_rendered": true,
+      "png_svg_mean_absolute_difference": 0.006072949946814861
+    },
+    {
+      "name": "abcd_confusion_overview_normalized",
+      "dimensions": [
+        3150,
+        2700
+      ],
+      "dpi": 300,
+      "svg_rendered": true,
+      "png_svg_mean_absolute_difference": 0.008730939402257611
+    },
+    {
+      "name": "abcd_metric_comparison",
+      "dimensions": [
+        3450,
+        2550
+      ],
+      "dpi": 300,
+      "svg_rendered": true,
+      "png_svg_mean_absolute_difference": 0.015148023938823751
+    },
+    {
+      "name": "abcd_pairwise_comparison",
+      "dimensions": [
+        3450,
+        2550
+      ],
+      "dpi": 300,
+      "svg_rendered": true,
+      "png_svg_mean_absolute_difference": 0.014071817081169924
+    },
+    {
+      "name": "abcd_slide_16x9",
+      "dimensions": [
+        4800,
+        2700
+      ],
+      "dpi": 300,
+      "svg_rendered": true,
+      "png_svg_mean_absolute_difference": 0.011879490509373966
+    },
+    {
+      "name": "confusion_overview",
+      "dimensions": [
+        3150,
+        2700
+      ],
+      "dpi": 300,
+      "svg_rendered": true,
+      "png_svg_mean_absolute_difference": 0.005527047362043852
+    },
+    {
+      "name": "confusion_overview_normalized",
+      "dimensions": [
+        3150,
+        2700
+      ],
+      "dpi": 300,
+      "svg_rendered": true,
+      "png_svg_mean_absolute_difference": 0.00809623546483002
+    },
+    {
+      "name": "confusion_svm_linear_baseline_counts",
+      "dimensions": [
+        1860,
+        1590
+      ],
+      "dpi": 300,
+      "svg_rendered": true,
+      "png_svg_mean_absolute_difference": 0.005811064739261845
+    },
+    {
+      "name": "confusion_svm_linear_baseline_normalized",
+      "dimensions": [
+        1860,
+        1590
+      ],
+      "dpi": 300,
+      "svg_rendered": true,
+      "png_svg_mean_absolute_difference": 0.008606413321593133
+    },
+    {
+      "name": "confusion_svm_linear_tuned_counts",
+      "dimensions": [
+        1860,
+        1590
+      ],
+      "dpi": 300,
+      "svg_rendered": true,
+      "png_svg_mean_absolute_difference": 0.005524771139294566
+    },
+    {
+      "name": "confusion_svm_linear_tuned_normalized",
+      "dimensions": [
+        1860,
+        1590
+      ],
+      "dpi": 300,
+      "svg_rendered": true,
+      "png_svg_mean_absolute_difference": 0.008885771628635616
+    },
+    {
+      "name": "confusion_svm_rbf_baseline_counts",
+      "dimensions": [
+        1860,
+        1590
+      ],
+      "dpi": 300,
+      "svg_rendered": true,
+      "png_svg_mean_absolute_difference": 0.005575712948225843
+    },
+    {
+      "name": "confusion_svm_rbf_baseline_normalized",
+      "dimensions": [
+        1860,
+        1590
+      ],
+      "dpi": 300,
+      "svg_rendered": true,
+      "png_svg_mean_absolute_difference": 0.008523900538211778
+    },
+    {
+      "name": "confusion_svm_rbf_tuned_counts",
+      "dimensions": [
+        1860,
+        1590
+      ],
+      "dpi": 300,
+      "svg_rendered": true,
+      "png_svg_mean_absolute_difference": 0.005877592849459485
+    },
+    {
+      "name": "confusion_svm_rbf_tuned_normalized",
+      "dimensions": [
+        1860,
+        1590
+      ],
+      "dpi": 300,
+      "svg_rendered": true,
+      "png_svg_mean_absolute_difference": 0.008804444907099104
+    },
+    {
+      "name": "cv_vs_test_f1",
+      "dimensions": [
+        3720,
+        1590
+      ],
+      "dpi": 300,
+      "svg_rendered": true,
+      "png_svg_mean_absolute_difference": 0.006687189844011914
+    },
+    {
+      "name": "error_breakdown",
+      "dimensions": [
+        3720,
+        1620
+      ],
+      "dpi": 300,
+      "svg_rendered": true,
+      "png_svg_mean_absolute_difference": 0.005950410836180446
+    },
+    {
+      "name": "evaluation_flow",
+      "dimensions": [
+        4560,
+        930
+      ],
+      "dpi": 300,
+      "svg_rendered": true,
+      "png_svg_mean_absolute_difference": 0.006909151742601347
+    },
+    {
+      "name": "metric_comparison",
+      "dimensions": [
+        3450,
+        2550
+      ],
+      "dpi": 300,
+      "svg_rendered": true,
+      "png_svg_mean_absolute_difference": 0.011722980027183331
+    },
+    {
+      "name": "predicted_label_distribution",
+      "dimensions": [
+        3720,
+        1590
+      ],
+      "dpi": 300,
+      "svg_rendered": true,
+      "png_svg_mean_absolute_difference": 0.005550260687712545
+    }
+  ],
+  "local_links_checked": 192,
+  "missing_links": [],
+  "note": "Numerical, metadata, SVG-render and boundary checks; manual visual review is separate"
+}

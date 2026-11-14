@@ -1,5 +1,5 @@
 {
-  "completed_at": "2026-10-03T16:25:55+07:00",
+  "completed_at": "2026-11-14T16:53:59+07:00",
   "data_audit": {
     "train_rows": 3428,
     "original_test_rows": 858,
@@ -63,7 +63,8 @@
         "f1": 0.4928909952606635,
         "f1_macro": 0.7108025929001518,
         "f1_weighted": 0.8548889997505611,
-        "balanced_accuracy": 0.6694650565012852
+        "balanced_accuracy": 0.6694650565012852,
+        "roc_auc": 0.8634560356952325
       },
       "confusion_matrix": [
         [
@@ -108,7 +109,7 @@
       "prediction_file": "predictions/svm_linear_baseline.csv",
       "error_file": "predictions/svm_linear_baseline_errors.csv",
       "evaluated_samples": 856,
-      "seconds": 1.3531929000000673
+      "seconds": 2.2480082000001858
     },
     {
       "id": "svm_rbf_baseline",
@@ -126,7 +127,8 @@
         "f1": 0.33519553072625696,
         "f1_macro": 0.6287849799750006,
         "f1_weighted": 0.8229107139408754,
-        "balanced_accuracy": 0.6006353363402687
+        "balanced_accuracy": 0.6006353363402687,
+        "roc_auc": 0.8749211891944322
       },
       "confusion_matrix": [
         [
@@ -171,7 +173,7 @@
       "prediction_file": "predictions/svm_rbf_baseline.csv",
       "error_file": "predictions/svm_rbf_baseline_errors.csv",
       "evaluated_samples": 856,
-      "seconds": 2.011236000000281
+      "seconds": 3.6945439000010083
     },
     {
       "id": "svm_linear_tuned",
@@ -189,7 +191,8 @@
         "f1": 0.6191950464396285,
         "f1_macro": 0.765321065336445,
         "f1_weighted": 0.8619417740929847,
-        "balanced_accuracy": 0.7899752655317911
+        "balanced_accuracy": 0.7899752655317911,
+        "roc_auc": 0.8638440273534118
       },
       "confusion_matrix": [
         [
@@ -234,7 +237,7 @@
       "prediction_file": "predictions/svm_linear_tuned.csv",
       "error_file": "predictions/svm_linear_tuned_errors.csv",
       "evaluated_samples": 856,
-      "seconds": 1.3424606999997195
+      "seconds": 3.0620939000000362
     },
     {
       "id": "svm_rbf_tuned",
@@ -252,7 +255,8 @@
         "f1": 0.5994236311239193,
         "f1_macro": 0.7487960646462087,
         "f1_weighted": 0.8475633512976292,
-        "balanced_accuracy": 0.7897036713710655
+        "balanced_accuracy": 0.7897036713710655,
+        "roc_auc": 0.8570929725010912
       },
       "confusion_matrix": [
         [
@@ -297,7 +301,7 @@
       "prediction_file": "predictions/svm_rbf_tuned.csv",
       "error_file": "predictions/svm_rbf_tuned_errors.csv",
       "evaluated_samples": 856,
-      "seconds": 2.029774399999951
+      "seconds": 3.55093080000006
     }
   ],
   "tables": {
@@ -316,5 +320,5 @@
     "pandas": "2.3.2",
     "joblib": "1.5.2"
   },
-  "total_seconds": 7.369743900000685
+  "total_seconds": 13.607666899999458
 }

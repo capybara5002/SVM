@@ -1,0 +1,18 @@
+{
+  "name": "abcd_slide_16x9",
+  "size_inches": [
+    16.0,
+    9.0
+  ],
+  "dpi": 300,
+  "font": "DejaVu Sans; SVG glyph outlines",
+  "background": "white",
+  "clipped_text": [],
+  "sha256": {
+    "png": "0703b30e52b305964ef8c8520055f913995aee1ae44200c953ab552f48e9e616",
+    "svg": "cffa69cf3630666ae1ed806e06ead52aab2e17f6f0f03e52cfbfa2ccfc586d11"
+  },
+  "source_data": "results/chapter3_4/experiment_summary.json",
+  "source_sha256": "cb026b09b3759b356912268e0f7212e2be11357c0621cb49387d3318e9e6fa98",
+  "transformations": "metrics unchanged; normalized confusion cells divide by true-label row total"
+}

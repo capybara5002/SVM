@@ -4,6 +4,7 @@ __pycache__/
 .ipynb_checkpoints/
 .pytest_cache/
 .coverage
+tmp/
 
 # Du lieu va san pham sinh tu pipeline co the lon hoac chua du lieu nghien cuu.
 data/raw/*

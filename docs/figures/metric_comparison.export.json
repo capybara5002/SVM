@@ -1,0 +1,18 @@
+{
+  "name": "metric_comparison",
+  "size_inches": [
+    11.5,
+    8.5
+  ],
+  "dpi": 300,
+  "font": "DejaVu Sans; SVG glyph outlines",
+  "background": "white",
+  "clipped_text": [],
+  "sha256": {
+    "png": "212bd4ed0f81c6b6b20cb5b479d1b2048e6d3d74f3742ccfb0922236616109cb",
+    "svg": "c2b78e9244ccb60f01ae9a1a359608495e600d7fe9512b6287b8bbd844d18c62"
+  },
+  "source_data": "docs/evaluation_summary.json",
+  "source_sha256": "421159fd027ae9560e520914cd6b3f406a60b9d3b4b070e2b95e647032a6abef",
+  "transformations": "metrics unchanged; normalized confusion cells divide by true-label row total"
+}

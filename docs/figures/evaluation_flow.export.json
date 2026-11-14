@@ -1,0 +1,18 @@
+{
+  "name": "evaluation_flow",
+  "size_inches": [
+    15.2,
+    3.1
+  ],
+  "dpi": 300,
+  "font": "DejaVu Sans; SVG glyph outlines",
+  "background": "white",
+  "clipped_text": [],
+  "sha256": {
+    "png": "da0ed813134e7d8b41cfb3c54cf44ccddf940129387df97108646168f4cfd2e8",
+    "svg": "c7ee2b93835d3418c8347156204bc70c5055760904ec58f7a619b9c0faba3d5f"
+  },
+  "source_data": "docs/evaluation_summary.json",
+  "source_sha256": "421159fd027ae9560e520914cd6b3f406a60b9d3b4b070e2b95e647032a6abef",
+  "transformations": "metrics unchanged; normalized confusion cells divide by true-label row total"
+}

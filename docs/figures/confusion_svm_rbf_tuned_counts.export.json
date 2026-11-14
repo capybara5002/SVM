@@ -1,0 +1,18 @@
+{
+  "name": "confusion_svm_rbf_tuned_counts",
+  "size_inches": [
+    6.2,
+    5.3
+  ],
+  "dpi": 300,
+  "font": "DejaVu Sans; SVG glyph outlines",
+  "background": "white",
+  "clipped_text": [],
+  "sha256": {
+    "png": "537343b2b4e0ac4d90365c73bccc39dc4e7e15990225e45cc1a3e89c341d2329",
+    "svg": "20ff6dac68fb1f40fe2ed1154965119cf7931f43d08bf3e8a1f25d369580dcf6"
+  },
+  "source_data": "docs/evaluation_summary.json",
+  "source_sha256": "421159fd027ae9560e520914cd6b3f406a60b9d3b4b070e2b95e647032a6abef",
+  "transformations": "metrics unchanged; normalized confusion cells divide by true-label row total"
+}

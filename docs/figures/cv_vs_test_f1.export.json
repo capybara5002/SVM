@@ -1,0 +1,18 @@
+{
+  "name": "cv_vs_test_f1",
+  "size_inches": [
+    12.4,
+    5.3
+  ],
+  "dpi": 300,
+  "font": "DejaVu Sans; SVG glyph outlines",
+  "background": "white",
+  "clipped_text": [],
+  "sha256": {
+    "png": "941e577188d7263dea067dbf86cb58fb8334d5120440227acdba59528cc84d56",
+    "svg": "62e74acbab5b5c7cecc6ad6f87e7d9d6b490beb5b69e6e4729bb6f8c07a43b94"
+  },
+  "source_data": "docs/evaluation_summary.json",
+  "source_sha256": "421159fd027ae9560e520914cd6b3f406a60b9d3b4b070e2b95e647032a6abef",
+  "transformations": "metrics unchanged; normalized confusion cells divide by true-label row total"
+}

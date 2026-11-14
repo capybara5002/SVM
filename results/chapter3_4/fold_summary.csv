@@ -1,0 +1,6 @@
+﻿fold,train_n,validation_n,train_0,train_1,validation_0,validation_1,clean_text_overlap,segmented_text_overlap
+1,2741,687,2273,468,578,109,0,0
+2,2744,684,2290,454,561,123,0,0
+3,2743,685,2267,476,584,101,0,0
+4,2743,685,2298,445,553,132,0,0
+5,2741,687,2276,465,575,112,0,0
