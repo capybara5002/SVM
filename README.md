@@ -303,7 +303,40 @@ Dữ liệu tổng hợp nhỏ chỉ xuất hiện trong unit test, không đư�
 
 Các test đánh giá xác nhận thứ tự TN/FP/FN/TP, chỉ số nhãn 1, xử lý không có dự đoán dương, loại trùng có thể tái lập, bảo toàn dữ liệu/mô hình gốc và từ chối metadata không khớp. Integration chặn mọi thao tác `fit`/`fit_transform` khi đánh giá và kiểm tra mô hình được chọn từ CV vẫn được giữ nếu một cấu hình khác có F1 test cao hơn. **Toàn bộ 30 kiểm thử đã vượt qua.**
 
-## 10. Trạng thái kế hoạch
+## 10. Web kiểm thử tương tác
+
+Web cho phép **dán nội dung** hoặc **tải tệp TXT, MD, DOCX, PDF có văn bản** và theo dõi toàn bộ pipeline nhận diện. Chạy trong thư mục gốc dự án:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements-web.txt
+.\.venv\Scripts\python.exe run_web.py
+```
+
+Nếu môi trường được tạo bằng `uv` và không có `pip`, cài bằng `uv pip install --python .venv/Scripts/python.exe -r requirements-web.txt`.
+
+Mở **http://127.0.0.1:5000**. Có thể dùng cổng khác: `python run_web.py --port 5050`. Giữ cửa sổ chạy server mở khi dùng web; `Ctrl+C` để dừng. Đây là ứng dụng local, chỉ lắng nghe trên máy cá nhân, chưa phải dịch vụ được triển khai lên Internet.
+
+Sau khi nhấn **Phân tích nội dung**, giao diện nhận cập nhật từ server theo từng bước thực sự hoàn thành:
+
+1. Đọc nội dung gốc, thống kê ký tự và thông tin tệp.
+2. Làm sạch: xem văn bản sau từng thao tác Unicode NFC, HTML entity, thẻ HTML, URL, chữ thường và khoảng trắng.
+3. Tách từ bằng Underthesea cho C/D; cấu hình A/B giữ văn bản đã làm sạch, đúng như huấn luyện.
+4. Transform bằng TF-IDF đã học: xem toàn bộ đặc trưng khác 0, TF, IDF, trọng số chuẩn hóa L2 và từ ngoài từ vựng. Bảng có tìm kiếm và phân trang.
+5. Dự đoán nhãn và điểm SVM. Linear hiển thị đóng góp từng đặc trưng; RBF hiển thị tối đa 20 vector hỗ trợ có trị tuyệt đối đóng góp lớn nhất và tổng trên tất cả vector hỗ trợ. Tổng đóng góp cộng hệ số chặn tái tạo điểm quyết định.
+
+Có thể đổi giữa các mô hình **A–D**, mặc định chọn cấu hình thắng theo CV trong `results/chapter3_4/experiment_summary.json` (hiện là D). Tệp mô hình được kiểm tra SHA-256 theo metadata trước khi nạp. Nếu không có artifacts A–D, ứng dụng dùng `artifacts/svm_best_model.pkl` của Tuần 5 khi có. Không fit lại TF-IDF hay SVM trên nội dung nhập, không dùng `artifacts/tfidf_vectorizer.joblib` riêng để ghép vào mô hình khác.
+
+Nhãn giữ nguyên ý nghĩa ReINTEL: **0 = thông tin đáng tin cậy**, **1 = thông tin không đáng tin cậy**. Điểm quyết định **không phải xác suất**. Dự đoán từ mẫu ngôn ngữ không thay thế kiểm chứng sự thật, nhất là với bài báo dài hoặc nội dung khác miền dữ liệu mạng xã hội đã học.
+
+Giới hạn: **5 MB/tệp**, **100.000 ký tự**, **80 trang PDF**. TXT/MD hỗ trợ UTF-8 và UTF-16 có BOM. PDF scan cần OCR bên ngoài; PDF có mật khẩu và tệp hỏng được báo lỗi. Mỗi tệp được xem như một bài viết, không tự tách nhiều bài. Không lưu tệp hay nội dung vào cơ sở dữ liệu/lịch sử; nút **Tải báo cáo JSON** cho phép người dùng chủ động tải toàn bộ nội dung và kết quả về máy. Khi sửa nội dung, tệp hoặc mô hình, kết quả cũ được xóa để tránh nhầm lẫn.
+
+Kiểm thử web, định dạng tệp và sự nhất quán với mô hình:
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_web -v
+```
+
+## 11. Trạng thái kế hoạch
 
 Tuần 1-3 đã hoàn thành tải dữ liệu thật, EDA, tiền xử lý, tách từ, chia dữ liệu và TF-IDF. Báo cáo Tuần 3 là tài liệu lịch sử của giai đoạn chuẩn bị dữ liệu.
 

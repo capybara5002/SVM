@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Phòng kiểm thử nhận diện tin giả bằng SVM. Dán nội dung, tải tệp và theo dõi từng bước phân tích.">
+  <title>SVM News Lab · Phân tích tin tức</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="SVM News Lab, trang chủ"><span class="brand-icon">s<span>v</span>m</span><span>News Lab<span class="brand-sub">PHÒNG KIỂM THỬ</span></span></a>
+    <div class="sidebar-section">KHÔNG GIAN LÀM VIỆC</div>
+    <a class="nav-item active" href="#workspace"><span class="nav-symbol">▧</span> Phân tích nội dung<span class="nav-dot"></span></a>
+    <div class="sidebar-section steps-heading">QUY TRÌNH PHÂN TÍCH</div>
+    <nav id="step-nav" class="step-nav" aria-label="Các bước phân tích">
+      <a href="#stage-input" data-step="input"><span class="step-number">01</span><span>Đọc nội dung<small>Văn bản hoặc tệp</small></span><i></i></a>
+      <a href="#stage-clean" data-step="clean"><span class="step-number">02</span><span>Làm sạch<small>Chuẩn hóa văn bản</small></span><i></i></a>
+      <a href="#stage-segment" data-step="segment"><span class="step-number">03</span><span>Tách từ<small>Biểu diễn tiếng Việt</small></span><i></i></a>
+      <a href="#stage-tfidf" data-step="tfidf"><span class="step-number">04</span><span>Vector hóa TF-IDF<small>Trọng số đặc trưng</small></span><i></i></a>
+      <a href="#stage-svm" data-step="svm"><span class="step-number">05</span><span>Dự đoán SVM<small>Điểm quyết định & nhãn</small></span><i></i></a>
+    </nav>
+    <div class="sidebar-bottom"><span class="local-indicator"></span> Chạy trên máy của bạn<p>Nội dung và tệp được xử lý trong bộ nhớ, không lưu vào lịch sử.</p><span class="version">REINTEL · SVM · v1.0</span></div>
+  </aside>
+
+  <main id="workspace">
+    <header class="topbar"><span>Không gian thử nghiệm <span class="breadcrumb">/</span> <strong>Phân tích tin tức</strong></span><span id="connection" class="connection"><span></span> Đang kết nối mô hình</span></header>
+    <div class="main-content">
+      <section class="page-heading"><div><div class="eyebrow"><span></span> NHẬN DIỆN TIN GIẢ BẰNG SVM</div><h1>Từ nội dung đến <em>dự đoán.</em></h1><p>Đưa vào một bài viết. Theo dõi từng bước mô hình phân tích.</p></div><div class="heading-mark" aria-hidden="true"><span>文</span><span>→</span><span>ƒ(x)</span></div></section>
+
+      <div class="workspace-grid">
+        <section class="input-panel panel" aria-labelledby="input-heading">
+          <div class="panel-heading"><h2 id="input-heading"><span class="section-icon">↳</span> Nội dung cần kiểm tra</h2><span class="tag">ĐẦU VÀO</span></div>
+          <form id="analysis-form">
+            <div class="tabs" role="tablist" aria-label="Cách nhập nội dung"><button type="button" class="tab selected" role="tab" aria-selected="true" aria-controls="text-panel" id="text-tab" data-mode="text">▤ &nbsp; Dán nội dung</button><button type="button" class="tab" role="tab" aria-selected="false" aria-controls="file-panel" id="file-tab" data-mode="file" tabindex="-1">↥ &nbsp; Tải tệp lên</button></div>
+            <div id="text-panel" role="tabpanel" aria-labelledby="text-tab">
+              <div class="editor-label"><label for="article">Nội dung bài viết</label><button type="button" id="clear" class="text-button">Xóa nội dung</button></div>
+              <textarea id="article" name="text" maxlength="100000" placeholder="Dán bài báo hoặc bài đăng tiếng Việt tại đây…&#10;&#10;Bạn có thể nhập cả tiêu đề và nội dung để mô hình có thêm ngữ cảnh." spellcheck="false"></textarea>
+              <div class="editor-footer"><span id="char-count">0 ký tự</span><span>Tối đa 100.000 ký tự</span></div>
+              <div class="sample-line"><span>Chưa có nội dung?</span><button type="button" id="sample" class="text-button">Thử văn bản mẫu <span>↗</span></button></div>
+            </div>
+            <div id="file-panel" role="tabpanel" aria-labelledby="file-tab" hidden>
+              <label class="dropzone" id="dropzone" for="upload"><span class="upload-icon">↥</span><strong>Chọn hoặc kéo thả tệp vào đây</strong><span>TXT, MD, DOCX hoặc PDF · Tối đa 5 MB</span><span class="choose-file">Chọn tệp từ máy</span><input id="upload" type="file" accept=".txt,.md,.docx,.pdf"></label>
+              <div id="selected-file" class="selected-file" hidden><span class="file-symbol">▤</span><div><strong id="file-name"></strong><span id="file-size"></span></div><button type="button" id="remove-file" aria-label="Bỏ tệp đã chọn">×</button></div>
+              <p class="file-note">Mỗi tệp được phân tích như một bài viết. PDF cần có văn bản có thể chọn và sao chép; chưa hỗ trợ OCR cho ảnh scan.</p>
+            </div>
+            <div class="model-section"><label for="model">Mô hình phân tích</label><select id="model" name="model" disabled><option>Đang tải mô hình…</option></select><p id="model-description">Sử dụng mô hình và từ vựng đã huấn luyện.</p></div>
+            <div id="input-error" class="error-message" role="alert" hidden></div>
+            <button type="submit" id="analyze" class="primary-button" disabled><span id="analyze-label">Phân tích nội dung</span><span class="button-arrow">→</span></button>
+            <p class="keyboard-hint"><kbd>Ctrl</kbd> + <kbd>Enter</kbd> để phân tích</p>
+          </form>
+          <div class="input-note"><span>ⓘ</span><p>Mô hình nhận diện mẫu ngôn ngữ trong văn bản. Kết quả là dự đoán hỗ trợ tham khảo, cần đối chiếu với nguồn tin độc lập.</p></div>
+        </section>
+
+        <section class="analysis-panel" aria-labelledby="analysis-heading">
+          <div class="analysis-heading"><h2 id="analysis-heading">Quá trình phân tích <span id="completed-count">0/5</span></h2><button type="button" id="download" class="secondary-button" disabled>↓ &nbsp; Tải báo cáo JSON</button></div>
+          <div id="live-status" class="sr-only" role="status" aria-live="polite"></div>
+          <div id="empty-state" class="empty-state panel">
+            <div class="empty-illustration" aria-hidden="true"><div class="paper-shape"><i></i><i></i><i></i><i></i><span>≋</span></div><span class="scan-corner corner-tl"></span><span class="scan-corner corner-tr"></span><span class="scan-corner corner-bl"></span><span class="scan-corner corner-br"></span><span class="empty-check">✓</span></div>
+            <span class="empty-caption">SẴN SÀNG KHÁM PHÁ</span><h3>Mỗi dự đoán đều có một quá trình.</h3><p>Nhập nội dung bên trái rồi nhấn <strong>Phân tích</strong>.<br>Bạn sẽ thấy dữ liệu đi qua từng bước của mô hình.</p>
+            <div class="pipeline-preview"><span>Văn bản</span><b>→</b><span>TF-IDF</span><b>→</b><span>SVM</span><b>→</b><span>Nhãn</span></div>
+          </div>
+          <div id="result" class="result-card" hidden></div>
+          <div id="pipeline" class="pipeline" hidden></div>
+          <div id="analysis-error" class="error-message" role="alert" hidden></div>
+          <p class="analysis-footnote"><span class="tiny-dot"></span> Dùng lại đúng pipeline khi huấn luyện · Không huấn luyện lại trên nội dung nhập</p>
+        </section>
+      </div>
+      <footer class="page-footer"><span>SVM News Lab <span>—</span> Đồ án nhận diện tin giả tiếng Việt</span><span>Minh bạch từng bước. Thận trọng với kết luận.</span></footer>
+    </div>
+  </main>
+</body>
+</html>
